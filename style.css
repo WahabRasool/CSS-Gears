@@ -1,0 +1,105 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  perspective: 800px;
+  overflow: hidden;
+  
+  * {
+    transform-style: preserve-3d;
+  }
+}
+
+.scene {
+  position: relative;
+  transform: rotatex(45deg);
+}
+
+.floor {
+  position: absolute;
+  inset: -50em;
+  background-image:
+    radial-gradient(closest-side, #0ff3, #000),
+    repeating-linear-gradient(30deg, #0000 0, #fff7 2px, #0000 4px 2.5em),
+    repeating-linear-gradient(120deg, #0000 0, #fff7 2px, #0000 4px 2.5em);
+}
+
+.gear {
+  position: absolute;
+  animation: gearRotate 30s infinite linear;
+    
+  &:nth-child(1) {
+    --translate: 1.4em, 6.8em;
+  }
+  &:nth-child(2) {
+    --translate: -6.8em, 1.4em;
+    animation-direction: reverse;
+    animation-delay: -0.7s;
+  }
+  &:nth-child(3) {
+    --translate: 6.8em, -1.4em;
+    animation-direction: reverse;
+    animation-delay: -0.7s;
+  }
+  &:nth-child(4) {
+    --translate: -1.4em, -6.8em;
+  }
+  
+  i {
+    --color: hsl(0 0 calc(var(--i) * 5% + 40%));
+    position: absolute;
+    inset: -5em;
+    border-radius: 50%;
+    translate: 0 0 calc(var(--i) * 3px);
+    background-image:
+      radial-gradient(transparent 3em, var(--color) 0 4em, transparent 0),
+      radial-gradient(circle at calc(cos(0deg) * 5em + 5em) calc(sin(0deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(30deg) * 5em + 5em) calc(sin(30deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(60deg) * 5em + 5em) calc(sin(60deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(90deg) * 5em + 5em) calc(sin(90deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(120deg) * 5em + 5em) calc(sin(120deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(150deg) * 5em + 5em) calc(sin(150deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(180deg) * 5em + 5em) calc(sin(180deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(210deg) * 5em + 5em) calc(sin(210deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(240deg) * 5em + 5em) calc(sin(240deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(270deg) * 5em + 5em) calc(sin(270deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(300deg) * 5em + 5em) calc(sin(300deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0),
+      radial-gradient(circle at calc(cos(330deg) * 5em + 5em) calc(sin(330deg) * 5em + 5em), transparent 0 0.8em, var(--color) 0em 1.8em, transparent 0);
+  }
+  
+  i::after {
+    content: '';
+    position: absolute;
+    inset: -1em;
+    background-image:
+      radial-gradient(circle at calc(cos(15deg) * 5em + 6em) calc(sin(15deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(45deg) * 5em + 6em) calc(sin(45deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(75deg) * 5em + 6em) calc(sin(75deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(105deg) * 5em + 6em) calc(sin(105deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(135deg) * 5em + 6em) calc(sin(135deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(165deg) * 5em + 6em) calc(sin(165deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(195deg) * 5em + 6em) calc(sin(195deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(225deg) * 5em + 6em) calc(sin(225deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(255deg) * 5em + 6em) calc(sin(255deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(285deg) * 5em + 6em) calc(sin(285deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(315deg) * 5em + 6em) calc(sin(315deg) * 5em + 6em), var(--color) 0.5em, transparent 0),
+      radial-gradient(circle at calc(cos(345deg) * 5em + 6em) calc(sin(345deg) * 5em + 6em), var(--color) 0.5em, transparent 0);
+  }
+  
+  i:nth-child(1) {
+    filter: drop-shadow(0 0 1em #000);
+  }
+}
+
+@keyframes gearRotate {
+  from { transform: translate(var(--translate)) rotateZ(0deg); }
+  to { transform: translate(var(--translate)) rotateZ(360deg); }
+}
